@@ -1,0 +1,10 @@
+<div class="wallet">
+    <div class="wallet-logo">
+      <img src="../../../assets/Wallet.png" alt="Logo Wallet">
+    </div>
+    <div class="wallet-content" *ngIf="wallet$ | async as wallet">
+      <p class="wallet-balance">{{wallet.balance}} €</p> <!-- Vous pouvez rendre cette partie dynamique en utilisant une variable. -->
+      <button class="wallet-button" (click)="openAddFundsDialog()">Alimenter mon compte</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,37 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push" closed class="sidebar-cool">
+  <app-wallet></app-wallet>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <button class="sidebar"  mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <header>
+      <div class="overlay">
+    <h1>XYZ HOTEL</h1>
+    <h3>LE meilleur hotel dans votre region</h3>
+    <p class="pt-10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab.</p>
+        </div>
+    </header>
+    
+    <div class="flex flex-row justify-evenly">
+      <div *ngFor="let card of cards; let i = index" class="card-hover">
+        <div class="card-hover__content">
+          <h3 class="card-hover__title">{{ card.title }}</h3>
+          <p class="card-hover__text">{{ card.text }}</p>
+          <span (click)="getDetail(i)" class="card-hover__link">
+            <span class="card-hover__moredetails">{{ card.moreDetails }}</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>        
+          </span>
+        </div>
+        <div class="card-hover__extra">
+          <h4>Réservez <span>maintenant</span> et profitez de<span> votre</span> chambre</h4>
+        </div>
+        <img [src]="card.imageUrl" alt="">
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

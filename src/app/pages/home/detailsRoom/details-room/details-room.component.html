@@ -1,0 +1,26 @@
+@if ((loading$ | async ) === true) {
+  <mat-spinner class="futuristic"></mat-spinner>
+} @else if( info$ | async) {
+  <span class="couleur" *ngIf="info$ | async as info">
+    <h1 mat-dialog-title class="futuristic">chambre de type {{ data.title }}</h1>
+    <mat-dialog-content class="mat-typography futuristic">
+      <h3>vous êtes à quelques cliques de votre chambre {{ data.title }}</h3>
+      <p> votre chambre contient:</p><br>
+      <p *ngFor="let item of info.$values[0].amenities.$values;" class="futuristic"> 
+        {{ item }}
+        <br>
+      </p>
+      <p> Pour un prix de  <span class="text-blue-500 futuristic">{{ info.$values[0].pricePerNight }}  €</span> par nuit</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="futuristic">Retour</button>
+      <button mat-button [mat-dialog-close]="true" (click)="makeReservation()" class="futuristic">Réserver</button>
+    </mat-dialog-actions>
+  </span>
+} @else {
+  <div class="h-32 w-32 flex justify-center items-center mx-6 futuristic">
+    <p>
+      cette carte ne contient pas encore d'info
+    </p>
+  </div>
+}
