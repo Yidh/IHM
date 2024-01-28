@@ -39,7 +39,7 @@ OS: win32 x64
 
 ## lancement
 
-     Utilisez la commande pour intaller les dependences :
+     Utilisez la commande pour installer les dépendences :
 
    ```bash
    npm install
